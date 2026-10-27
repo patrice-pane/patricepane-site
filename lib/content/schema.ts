@@ -54,6 +54,12 @@ export const siteSchema = z.strictObject({
   email: z.email(),
   // Username only, without @.
   instagram: z.string().regex(/^[A-Za-z0-9._]+$/, "nom d'utilisateur sans @"),
+  // Google Business Profile link, declared in the home page's structured data (sameAs).
+  fiche_google: z
+    .string()
+    .regex(/^https:\/\/\S+$/, "lien https attendu")
+    .nullish()
+    .transform((v) => v || undefined),
 });
 
 export type ImageRef = z.infer<typeof imageSchema>;

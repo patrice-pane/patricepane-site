@@ -33,7 +33,7 @@ export function businessJsonLd(site: Site, accueil: Accueil, cover?: Image) {
     address: postalAddress(site.adresse),
     areaServed: { "@type": "City", name: "Marseille" },
     ...(cover && { image: `${SITE_URL}${cover.src}` }),
-    sameAs: [`https://www.instagram.com/${site.instagram}/`],
+    sameAs: [`https://www.instagram.com/${site.instagram}/`, ...(site.fiche_google ? [site.fiche_google] : [])],
   };
 }
 

@@ -113,6 +113,8 @@ const marker = (label, f) => {
     return `/uploads/${file}`;
   }
   if (f.name === "email") return `${id.toLowerCase()}@example.org`;
+  // Fields validated as links get a URL carrying the marker.
+  if (String(f.pattern?.[0] ?? "").startsWith("^https://")) return `https://example.org/${id}`;
   return id;
 };
 

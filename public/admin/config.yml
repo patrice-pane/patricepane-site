@@ -161,3 +161,9 @@ collections:
             widget: string
             hint: "Nom d'utilisateur seul, sans @ ni lien."
             pattern: ['^[A-Za-z0-9._]+$', "Nom d'utilisateur seul : lettres, chiffres, points et _"]
+          - label: Fiche Google (Maps)
+            name: fiche_google
+            widget: string
+            required: false
+            hint: "Lien vers la fiche Google de l'entreprise (bouton « Partager » sur Google Maps). Invisible sur le site, il aide Google à relier la fiche et le site."
+            pattern: ['^https://\S+$', "Lien commençant par https://"]
