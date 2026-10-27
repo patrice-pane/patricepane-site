@@ -254,6 +254,17 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
   dans Chrome (« Work with Local Repository »). En prod, Pages sert `/admin/` normalement.
 - **Fini quand** l'édition locale d'un projet, d'une image (upload converti en webp) et de l'ordre
   modifie bien `content/`, et que `npm run test:cms` passe.
+- ✅ Fait le 27/10/2026. Sveltia **0.250.2** (5 jours, la 0.253.1 du jour écartée ; ses modules annexes
+  viennent d'unpkg à cette version). Testé en local depuis Chrome : description modifiée, JPEG
+  3200×2400 « Test Été Cuisine Zellige.JPG » → `test-ete-cuisine-zellige.webp` 2400×1800, image
+  ajoutée à un projet, ordre changé (flèches ↑/↓ du mode « Réorganiser » : seules les 2 entrées
+  concernées sont réécrites). Fichiers migrés mis au format de Sveltia (`order` en tête, ligne vide
+  après le front matter) pour que le premier enregistrement ne montre que la vraie modification.
+  Banques d'images désactivées (`stock_assets: false`). `test:cms` : schémas cohérents, 25/25 champs
+  affichés ; il échoue bien si un champ manque d'un côté ou n'est plus affiché.
+  À savoir (dev seulement) : en mode dépôt local, Sveltia garde les fichiers en cache et ne voit pas
+  les modifications faites sur le disque hors CMS ; se déconnecter puis resélectionner le dossier.
+  La médiathèque locale montre aussi le cache de l'optimiseur (≈ 1 000 fichiers) ; sur GitHub, 126.
 
 ### Phase 5 — Repo GitHub *(action manuelle, à confirmer avant)*
 - ✅ Fait le 27/10/2026 : organisation `patrice-pane` (gratuite, Robin admin), repo **public**

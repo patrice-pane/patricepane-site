@@ -1,4 +1,5 @@
 ---
+order: 12
 titre: Rénovation partielle d'une maison située dans le quartier  d'endoume à Marseille
 description: "Projet d'aménagement d'une pièce à vivre avec du mobilier sur-mesure et réflexion sur la séquence d'entrée "
 images:
@@ -19,8 +20,8 @@ images:
   - image: /uploads/renovation-maison-marseille-tapisserie-jungle-entree.webp
     alt: renovation maison marseille tapisserie jungle entree
 publie: true
-order: 12
 ---
+
 
 # RéNOVATION PARTIELLE D’UNE MAISON à ENDOUME, 13007 MARSEILLE
 

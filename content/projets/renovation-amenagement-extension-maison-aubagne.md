@@ -1,4 +1,5 @@
 ---
+order: 7
 titre: Rénovation d’une maison et aménagement d’une extension à Aubagne
 description: Projet d'architecture d'intérieur dans une extension contemporaine de maison à Aubagne
 images:
@@ -29,8 +30,8 @@ images:
   - image: /uploads/renovation-maison-et-amenagement-extension-aubagne-terrasse-bois-et-garde-corps-metallique.webp
     alt: renovation maison et amenagement extension aubagne terrasse bois et garde corps metallique
 publie: true
-order: 7
 ---
+
 # Rénovation d’une maison et aménagement d’une extension à Aubagne 13400	
 
 ## Réflexion globale sur l’architecture intérieure de la maison // 2021

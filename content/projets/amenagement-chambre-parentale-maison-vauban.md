@@ -1,4 +1,5 @@
 ---
+order: 9
 titre: Aménagement d’une chambre parentale dans une maison sur les hauteurs de Vauban à Marseille.
 description: Projet d'aménagement et de création de placards sur-mesures d'une chambre parentale dans une maison Marseillaise.
 images:
@@ -13,8 +14,8 @@ images:
   - image: /uploads/rangements-sur-mesures-dans-chambre-parentale-a-marseille-perspective-3d.webp
     alt: rangements sur mesures dans chambre parentale a marseille perspective 3d
 publie: true
-order: 9
 ---
+
 # Aménagement d’une chambre parentale à Vauban, 13006 Marseille
 ## Une solution sur-mesure pour optimiser l’espace et les rangements // 2021
 

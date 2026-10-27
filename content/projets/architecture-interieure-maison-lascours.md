@@ -1,4 +1,5 @@
 ---
+order: 4
 titre: Transformation de l’architecture intérieure d’une maison contemporaine à Lascours 13360
 description: Conception d'une cuisine professionnelle, d'un bar et aménagement d'une pièce à vivre au sein d'une maison contemporaine à Lascours
 images:
@@ -37,8 +38,8 @@ images:
   - image: /uploads/renovation-maison-contemporaine-lascours-carrelage-blanc-joint-noir-et-peinture-bleu-klein.webp
     alt: renovation maison contemporaine lascours carrelage blanc joint noir et peinture bleu klein
 publie: true
-order: 4
 ---
+
 
 
 # Transformation de l’architecture intérieure d’une maison contemporaine à Lascours 13360

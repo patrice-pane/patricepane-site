@@ -1,4 +1,5 @@
 ---
+order: 10
 titre: Rénovation d’une maison année 30 dans le quartier de St Barnabé à Marseille 13012.
 description: Projet en cours de conception portant sur la rénovation d'une jolie maison année 30, de 74m2, destinée à la location ou la revente.
 images:
@@ -15,8 +16,8 @@ images:
   - image: /uploads/radiateur-et-carreaux-de-ciment-typiques-des-maisons-des-annees-30.webp
     alt: radiateur et carreaux de ciment typiques des maisons des annees 30
 publie: true
-order: 10
 ---
+
 
 # Rénovation d’une maison des années 30, de St Barnabé à Marseille 13012
 

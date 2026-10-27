@@ -1,4 +1,5 @@
 ---
+order: 3
 titre: Mon parcours d'architecte d'intérieur
 titre_menu: parcours
 description: Patrice Pane est un architecte d'intérieur proposant ses services de conception et réalisation. Il a travaillé sur de nombreux projets à Paris et Marseille.
@@ -6,8 +7,8 @@ images:
   - image: /uploads/photo.webp
     alt: photo
 publie: true
-order: 3
 ---
+
 Après deux ans passés à l'École Nationale Supérieure d'**Architecture** de Marseille, Patrice Pane se recentre vers l'**architecture intérieure**  où il trouve dans le travail du détail, des matériaux, de l'agencement et de la décoration, un meilleur moyen d'exprimer sa créativité.\
 \
 Diplômé de l'École Denis Diderot à Marseille en 2013, Patrice débute sa profession à Paris où il assiste d'autres **architectes d'intérieurs** sur des dossiers de conception d'**appartements**, de **restaurants** et de **bureaux**.\

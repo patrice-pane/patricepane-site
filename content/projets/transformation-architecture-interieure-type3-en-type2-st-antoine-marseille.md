@@ -1,4 +1,5 @@
 ---
+order: 3
 titre: Transformation d'un type 3 en type 2 dans une résidence des années 2000 à Marseille.
 description: Création d'un type 2 confortable, à partir d'un type 3 de 65m2 dans le quartier de St Antoine à Marseille
 images:
@@ -21,8 +22,8 @@ images:
   - image: /uploads/suspension-formakami-et-tete-de-lit-peinte-en-couleur.webp
     alt: suspension formakami et tete de lit peinte en couleur
 publie: true
-order: 3
 ---
+
 # Transformation d'un type 3 en type 2  à St Antoine, 13015 Marseille
 
 ## Suppression d'une chambre au profit d'une pièce à vivre plus confortable, dans une résidence des années 2000 // 2023

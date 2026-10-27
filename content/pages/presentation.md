@@ -1,4 +1,5 @@
 ---
+order: 2
 titre: Architecture intérieure, aménagement et décoration
 titre_menu: présentation
 description: Patrice Pane, architecte d'intérieur basé à Marseille, propose ses services. Contactez-le pour discuter de votre projet de conception / rénovation.
@@ -6,8 +7,8 @@ images:
   - image: /uploads/capture-d-ecran-2022-12-26-a-17-19-20.webp
     alt: Capture d’ecran 2022-12-26 a 17.19.20
 publie: true
-order: 2
 ---
+
 Pour donner vie à vos projets, Patrice Pane, **architecte d'intérieur** basé à Marseille, propose de vous accompagner dans votre démarche de **rénovation**, de la conception de votre **intérieur** jusqu'à la réalisation de vos travaux.\
 \
 Quel que soit le lieu : **appartements, maisons ou locaux professionnels**, sa mission consiste à **restructurer vos espaces**, vos circulations, et à **sublimer vos intérieurs**, en conjuguant fonctionnalité et esthétisme. Tout en étudiant la technicité et le budget de votre projet, il peaufine vos espaces avec un travail sur-mesure de l'**aménagement**, de l'éclairage et de la **décoration intérieure**, qu'il souhaite cohérent avec l'esprit des lieux donnés. \

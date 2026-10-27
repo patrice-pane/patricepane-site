@@ -1,4 +1,5 @@
 ---
+order: 2
 titre: Mission d'architecture intérieure dans une maison provençale de la campagne d'Eoures à Marseille
 description: Conception de la rénovation d'une salle de bain et de l'aménagement d'une pièce à vivre.
 images:
@@ -21,8 +22,8 @@ images:
   - image: /uploads/projet-architecture-interieure-eoures-renovation-salle-de-bain-beton-resine.webp
     alt: projet architecture interieure eoures renovation salle de bain beton resine
 publie: true
-order: 2
 ---
+
 # Rénovation de l'architecture intérieure d'une maison d'Eoures, 13011 Marseille
 ## Aménagement de la pièce à vivre et rénovation de la salle de bain d'une maison provençale // 2023
 

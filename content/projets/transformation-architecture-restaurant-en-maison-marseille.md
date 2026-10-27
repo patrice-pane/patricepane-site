@@ -1,4 +1,5 @@
 ---
+order: 13
 titre: Transformation d'un restaurant de quartier en maisonnette dans le village de St Barnabé à Marseille 13012
 description: Changement de destination d'un local commercial, transformé en habitation de type 3, avec une petite cour extérieure
 images:
@@ -15,8 +16,8 @@ images:
   - image: /uploads/projet-avec-piece-a-vivre-peinte-en-kaki-avec-double-hauteur-sous-plafond.webp
     alt: projet avec piece a vivre peinte en kaki avec double hauteur sous plafond
 publie: true
-order: 13
 ---
+
 
 # Transformation d'un restaurant de quartier en maison, St Barnabé 13012 Marseille
 

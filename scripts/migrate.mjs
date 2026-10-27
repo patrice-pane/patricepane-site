@@ -34,7 +34,8 @@ const slugify = (s) =>
 const altFromKey = (key) => basename(key, extname(key)).replace(/\s+/g, " ").trim();
 
 const yamlOptions = { lineWidth: 0 };
-const frontmatter = (data, body) => `---\n${stringify(data, yamlOptions)}---\n${body.endsWith("\n") ? body : `${body}\n`}`;
+// Same layout as Sveltia's (blank line after the front matter), so a first save only shows real edits.
+const frontmatter = (data, body) => `---\n${stringify(data, yamlOptions)}---\n\n${body.endsWith("\n") ? body : `${body}\n`}`;
 
 const usedNames = new Set();
 let converted = 0;
@@ -76,12 +77,13 @@ for (const dir of [UPLOADS, join(CONTENT, "projets"), join(CONTENT, "pages"), jo
 
 for (const p of [...projects].sort((a, b) => a.position - b.position)) {
   const slug = SLUG_RENAMES[p.slug] ?? p.slug;
+  // Sveltia writes `order` first.
   const data = {
+    order: p.position + 1,
     titre: p.title,
     description: p.description ?? "",
     images: await images(p.images),
     publie: p.state === "PUBLISHED",
-    order: p.position + 1,
   };
   await writeFile(join(CONTENT, "projets", `${slug}.md`), frontmatter(data, p.content));
 }
@@ -90,12 +92,12 @@ for (const p of [...projects].sort((a, b) => a.position - b.position)) {
 for (const [i, { slug, titre_menu }] of PAGES.entries()) {
   const p = pages.find((x) => x.slug === slug);
   const data = {
+    order: i + 1,
     titre: p.title,
     titre_menu,
     description: p.description ?? "",
     images: await images(p.images),
     publie: true,
-    order: i + 1,
   };
   await writeFile(join(CONTENT, "pages", `${slug}.md`), frontmatter(data, p.content));
 }

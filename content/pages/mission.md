@@ -1,4 +1,5 @@
 ---
+order: 1
 titre: Mission d'architecture intérieure
 titre_menu: mission
 description: "Selon vos besoins, l'agence d'architecture intérieure propose deux missions distinctes et complémentaires: conception et suivi de chantier"
@@ -6,8 +7,8 @@ images:
   - image: /uploads/photo-copie.webp
     alt: photo copie
 publie: true
-order: 1
 ---
+
 Pour réaliser un projet d’**architecture intérieure** abouti, je vous propose une méthodologie permettant de vous accompagner tout le long de la conception jusqu’à la réalisation de vos travaux. L’écoute et le dialogue étant essentiels pour développer le projet qui vous agrée, nous nous rencontrons à plusieurs reprises, durant les différentes phases qui suivent:
 
 - **PHASE ETAT DES LIEUX**\

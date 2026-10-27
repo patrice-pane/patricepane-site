@@ -1,4 +1,5 @@
 ---
+order: 8
 titre: Conception d'architecture intérieure dans une maison de ville située dans Endoume à Marseille
 description: Rénovation d'une cuisine-salle à manger et d'une suite parentale
 images:
@@ -13,8 +14,8 @@ images:
   - image: /uploads/renovation-suite-parentale-endoume-marseille-carrelage-graphique-bleu-et-blanc-et-tete-de-lit-peinte-en-bleu.webp
     alt: renovation suite parentale endoume marseille carrelage graphique bleu et blanc et tete de lit peinte en bleu
 publie: true
-order: 8
 ---
+
 # Rénovation partielle de l'architecture intérieure d'une maison à Endoume, 13007 Marseille
 ## Conception d'une cuisine en RDC et d'une suite parentale en R+1 // 2020
 

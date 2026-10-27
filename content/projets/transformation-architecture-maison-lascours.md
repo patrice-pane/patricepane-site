@@ -1,4 +1,5 @@
 ---
+order: 5
 titre: Rénovation et aménagement d'une maison d'architecte à Lascours 13360
 description: Transformation d'une suite parentale avec des aménagements sur-mesures dans la salle de bain et le dressing.
 images:
@@ -23,8 +24,8 @@ images:
   - image: /uploads/renovation-maison-lascours-filtre-en-terre-cuite-et-placard-sur-mesure.webp
     alt: renovation maison lascours filtre en terre cuite et placard sur mesure
 publie: true
-order: 5
 ---
+
 
 # Rénovation et aménagement d'une maison d'architecte à Lascours 13360
 

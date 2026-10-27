@@ -1,4 +1,5 @@
 ---
+order: 6
 titre: Conception d’une extension, aménagée en cuisine  dans la campagne d'Eoures à Marseille.
 description: Création d'une cuisine et d'une salle à manger, dans une extension de maison située à Eoures.
 images:
@@ -21,8 +22,8 @@ images:
   - image: /uploads/extension-cuisine-a-eoures-marseille-perspective-3d.webp
     alt: extension cuisine a eoures marseille perspective 3d
 publie: true
-order: 6
 ---
+
 
 # Conception d’une extension de maison dans la campagne d’Eoures, 13011 Marseille
 

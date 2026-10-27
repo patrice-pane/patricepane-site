@@ -1,4 +1,5 @@
 ---
+order: 1
 titre: Transformation d'un appartement de type haussmannien en bureaux à la rue Paradis 13008 Marseille
 description: Conception et suivi de chantier de la transformation d'un appartement en bureaux en conservant le charme de l'ancien à Marseille
 images:
@@ -45,8 +46,8 @@ images:
   - image: /uploads/renovation-rue-paradis-suspensions-neon-noires-sur-bureaux.webp
     alt: renovation rue paradis suspensions neon noires sur bureaux
 publie: true
-order: 1
 ---
+
 # Transformation d'un appartement Haussmanien, en bureaux, rue Paradis 13008 Marseille
 
 

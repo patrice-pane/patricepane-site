@@ -1,0 +1,155 @@
+# Sveltia CMS configuration. Mirror of lib/content/schema.ts: any change to the
+# content model goes to BOTH files (`npm run test:cms` checks them).
+
+backend:
+  name: github
+  repo: patrice-pane/patricepane-site
+  branch: main
+  # TODO phase 6: base_url of this site's OAuth Worker (auth/), for "Sign in with GitHub".
+  # Until then, token sign-in and "Work with Local Repository" work.
+
+site_url: https://www.patricepane.com
+display_url: https://www.patricepane.com
+logo:
+  src: /favicon.png
+
+media_folder: public/uploads
+public_folder: /uploads
+
+# Uploads: ASCII file names, converted to webp and capped at 2400 px (like the migrated images).
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      max_file_size: 15000000
+      transformations:
+        raster_image: { format: webp, quality: 85, width: 2400, height: 2400 }
+  # No stock photo libraries (Pexels, Pixabay…): only the architect's own images.
+  stock_assets: false
+
+# Entry file names are the URLs: ASCII only (no accents/spaces), capped in length.
+slug:
+  encoding: ascii
+  clean_accents: true
+  maxlength: 80
+
+collections:
+  - name: projets
+    label: Projets
+    label_singular: Projet
+    icon: photo_library
+    description: "Ordre des projets sur la page d'accueil : glisser-déposer dans la liste."
+    folder: content/projets
+    extension: md
+    format: frontmatter
+    create: true
+    reorder: true
+    identifier_field: titre
+    slug: "{{slug}}"
+    summary: "{{titre}}"
+    preview_path: "/projet/{{slug}}"
+    fields:
+      - label: Titre
+        name: titre
+        widget: string
+        hint: "Titre de l'onglet et des moteurs de recherche. Il sert aussi d'adresse de la page à la création (non modifiable ensuite)."
+      - label: Description
+        name: description
+        widget: text
+        required: false
+        hint: "Une ou deux phrases pour Google et les aperçus de partage (WhatsApp, Facebook…)."
+      - label: Images
+        name: images
+        widget: list
+        required: false
+        hint: "La première image est celle de la page d'accueil. Glisser-déposer pour changer l'ordre."
+        summary: "{{fields.alt}}"
+        fields:
+          - { label: Image, name: image, widget: image }
+          - label: Description de l'image
+            name: alt
+            widget: string
+            required: false
+            hint: "Ce que montre l'image, en quelques mots (lu par Google et les lecteurs d'écran)."
+      - label: Texte
+        name: body
+        widget: markdown
+        hint: "Commencer par « # Titre affiché » puis « ## Sous-titre // année », comme les autres projets."
+      - label: Publié
+        name: publie
+        widget: boolean
+        default: true
+        hint: "Décocher pour retirer le projet du site sans le supprimer."
+
+  - name: pages
+    label: Pages
+    label_singular: Page
+    icon: description
+    description: "Pages du menu. Ordre du menu : glisser-déposer dans la liste (« Projets » reste toujours en premier)."
+    folder: content/pages
+    extension: md
+    format: frontmatter
+    create: true
+    reorder: true
+    identifier_field: titre
+    slug: "{{slug}}"
+    summary: "{{titre_menu}}"
+    preview_path: "/{{slug}}"
+    fields:
+      - { label: Titre, name: titre, widget: string, hint: "Grand titre de la page, aussi titre de l'onglet." }
+      - { label: Libellé du menu, name: titre_menu, widget: string, hint: "Court, affiché en minuscules dans le menu." }
+      - label: Description
+        name: description
+        widget: text
+        required: false
+        hint: "Sous-titre affiché sous le titre, repris par Google et les aperçus de partage."
+      - label: Images
+        name: images
+        widget: list
+        required: false
+        hint: "Seule la première image est affichée, à gauche du texte."
+        summary: "{{fields.alt}}"
+        fields:
+          - { label: Image, name: image, widget: image }
+          - { label: Description de l'image, name: alt, widget: string, required: false }
+      - { label: Texte, name: body, widget: markdown }
+      - { label: Publié, name: publie, widget: boolean, default: true, hint: "Décocher pour retirer la page du site et du menu." }
+
+  - name: accueil
+    label: Page d'accueil
+    icon: home
+    files:
+      - name: accueil
+        label: Page d'accueil
+        file: content/accueil.yml
+        fields:
+          - { label: Titre (onglet et Google), name: titre, widget: string }
+          - { label: Description (Google et aperçus de partage), name: description, widget: text, required: false }
+          - label: Texte sous les projets
+            name: texte
+            widget: markdown
+            required: false
+            hint: "Texte en bas de la page d'accueil, surtout utile pour Google."
+
+  - name: reglages
+    label: Réglages
+    icon: settings
+    files:
+      - name: site
+        label: Coordonnées et titre
+        file: content/reglages/site.yml
+        fields:
+          - { label: Nom, name: nom_site, widget: string, hint: "Grand titre de la page d'accueil." }
+          - { label: Sous-titre de l'accueil, name: titre, widget: string }
+          - { label: Métier, name: metier, widget: string, hint: "Sous le nom, en bas des pages." }
+          - { label: Adresse, name: adresse, widget: text, hint: "Une ligne par ligne d'adresse." }
+          - { label: Téléphone, name: telephone, widget: string }
+          - label: Email
+            name: email
+            widget: string
+            pattern: ['^[^@\s]+@[^@\s]+\.[^@\s]+$', "Adresse email invalide"]
+          - label: Instagram
+            name: instagram
+            widget: string
+            hint: "Nom d'utilisateur seul, sans @ ni lien."
+            pattern: ['^[A-Za-z0-9._]+$', "Nom d'utilisateur seul : lettres, chiffres, points et _"]

@@ -1,4 +1,5 @@
 ---
+order: 11
 titre: Rénovation d’un appartement traversant, situé dans le centre-ville de Marseille.
 description: Rénovation et transformation d'un appartement de type 2 en type 3 dans le centre ville de Marseille
 images:
@@ -13,8 +14,8 @@ images:
   - image: /uploads/salle-de-bain-et-cuisine-en-cours-de-travaux.webp
     alt: salle de bain et cuisine en cours de travaux
 publie: true
-order: 11
 ---
+
 
 # Rénovation d’un appartement traversant, dans le centre-ville de Marseille 13005
 
