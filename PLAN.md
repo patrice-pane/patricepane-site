@@ -292,6 +292,14 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
 - Vérifier sur `*.pages.dev` : toutes les URLs actuelles répondent (`/`, `/mission`, `/presentation`,
   `/parcours`, `/projet/<13 slugs>`), le 404, le sitemap, et que `curl -I …/uploads/x.webp` renvoie la CSP.
 - Tester une édition de bout en bout depuis `/admin/` avec le compte de Patrice : commit, rebuild, en ligne en 1 à 2 min.
+- ✅ Fait le 27/10/2026 : https://patricepane-site.pages.dev (compte Cloudflare de Robin). 22 URLs
+  en 200, 404, sitemap (17 URLs sur www), en-têtes vérifiés (CSP sur `/uploads/*`, `DENY` sur
+  `/admin/*`, cache long sur `/_next/static/*`), 301 de l'URL accentuée (`%C3%A9` et `%c3%a9` ;
+  Pages encode lui-même la ligne accentuée). Édition de bout en bout testée avec le compte de
+  Robin (celui de Patrice n'existe pas encore) : connexion GitHub via le Worker, commit sur `main`
+  1 s après l'enregistrement, en ligne en ~3 min (build seul : ~190 s, dont ~80 s d'images, le
+  cache de l'optimiseur n'existant pas sur Pages). Messages de commit du CMS en français.
+  **À refaire avec le compte de Patrice** quand il existera.
 
 ### Phase 8 — Bascule DNS (AWS → Cloudflare) *(action manuelle)*
 Situation : registrar Amazon, DNS Route 53. Apex et `www` pointent vers CloudFront. Pas de MX.

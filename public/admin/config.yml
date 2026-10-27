@@ -8,6 +8,13 @@ backend:
   # "Sign in with GitHub" goes through this site's OAuth Worker (auth/).
   # Token sign-in stays available as a fallback.
   base_url: https://cms-auth-patricepane.arbona-robin.workers.dev
+  # Commit messages in French, readable in the GitHub history.
+  commit_messages:
+    create: "Ajout : {{collection}} « {{slug}} »"
+    update: "Modification : {{collection}} « {{slug}} »"
+    delete: "Suppression : {{collection}} « {{slug}} »"
+    uploadMedia: "Ajout d'image : {{path}}"
+    deleteMedia: "Suppression d'image : {{path}}"
 
 site_url: https://www.patricepane.com
 display_url: https://www.patricepane.com
