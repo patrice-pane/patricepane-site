@@ -33,6 +33,7 @@
     "build": "next build && next-image-export-optimizer",
     "preview": "node scripts/preview.mjs",
     "check": "tsc --noEmit",
-    "test:cms": "node scripts/test-cms.mjs"
+    "test:cms": "node scripts/test-cms.mjs",
+    "content": "node scripts/check-content.ts"
   }
 }

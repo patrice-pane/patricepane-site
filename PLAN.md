@@ -212,6 +212,8 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
   locaux en string).
 - `lib/markdown.ts` : copie de `aMu/src/lib/markdown.ts`. **C'est le seul chemin du markdown vers le HTML.**
 - **Fini quand** un script ou test affiche toutes les entrées sans erreur Zod.
+- ✅ Fait le 27/10/2026 : `npm run content` (`scripts/check-content.ts`, exécuté directement par Node 22).
+  Schémas stricts (un champ inconnu fait échouer), slugs ASCII exigés, slugs de page réservés refusés.
 
 ### Phase 3 — Port du front
 - Copier `app/components/*`, `app/(frontend)/styles.css`, `styles/globals.css` et `lib/hooks`
