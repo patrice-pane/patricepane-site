@@ -1,7 +1,7 @@
 ---
 order: 6
 titre: Conception d’une extension, aménagée en cuisine  dans la campagne d'Eoures à Marseille.
-description: Création d'une cuisine et d'une salle à manger, dans une extension de maison située à Eoures.
+description: Création d'une cuisine et d'une salle à manger, dans une extension de maison située à Eoures. (test)
 images:
   - image: /uploads/extension-cuisine-a-eoures-table-en-bois-sol-travertin-et-cuisine-en-beton-resine.webp
     alt: extension cuisine a eoures table en bois sol travertin et cuisine en beton resine
