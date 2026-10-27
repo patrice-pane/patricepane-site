@@ -30,7 +30,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-image-export-optimizer",
+    "build": "(git fetch --unshallow --filter=blob:none --quiet 2>/dev/null || true) && next build && next-image-export-optimizer",
     "preview": "node scripts/preview.mjs",
     "check": "tsc --noEmit",
     "test:cms": "node scripts/test-cms.mjs",
