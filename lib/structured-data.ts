@@ -26,6 +26,8 @@ export function businessJsonLd(site: Site, accueil: Accueil, cover?: Image) {
     "@type": "HomeAndConstructionBusiness",
     "@id": `${SITE_URL}/#entreprise`,
     name: site.nom_site,
+    // Name of the Google Business Profile, so Google matches the profile and the site.
+    alternateName: `${site.nom_site} Architecture Intérieure`,
     description: accueil.description || undefined,
     url: `${SITE_URL}/`,
     telephone: internationalPhone(site.telephone),
