@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProjectsView from "@/app/components/ProjectsView";
 import { getAccueil, getProjects, getSite } from "@/lib/content/index.ts";
 import { openGraphBase } from "@/lib/metadata.ts";
+import { businessJsonLd, jsonLdScript } from "@/lib/structured-data.ts";
 
 export function generateMetadata(): Metadata {
   const { titre, description } = getAccueil();
@@ -22,5 +23,11 @@ export function generateMetadata(): Metadata {
 }
 
 export default function Home() {
-  return <ProjectsView />;
+  const jsonLd = businessJsonLd(getSite(), getAccueil(), getProjects()[0]?.images[0]);
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
+      <ProjectsView />
+    </>
+  );
 }

@@ -242,6 +242,8 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
   - lightbox en plus (absente de la prod) ; molette et glisser-souris d'Embla refaits sans dépendance ;
   - menu présent dans le HTML serveur (la prod ne le rend qu'après hydratation) ;
   - lien Instagram en https ; sur mobile, la page projet défile avec la page (pas dans un conteneur).
+    Corrigé le 27/10 : `overflow-x: hidden` rendait le conteneur défilant malgré tout, et le
+    carrousel recouvrait le texte au défilement (vu sur une capture en bas de page).
 
 ### Phase 4 — CMS
 - `public/admin/index.html` (copie aMu, `noindex`) et `public/admin/sveltia-cms.js` (installation vérifiée,
