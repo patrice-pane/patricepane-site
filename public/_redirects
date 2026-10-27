@@ -5,3 +5,7 @@
 
 # Old sitemap (next-sitemap), still declared in Search Console.
 /sitemap-0.xml /sitemap.xml 301
+
+# The old Amplify admin redirected /admin to /admin/projet with a permanent 308 that browsers keep
+# (Patrice's included): serve the new admin at that address too.
+/admin/projet /admin/ 200
