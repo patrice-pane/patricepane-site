@@ -2,3 +2,6 @@
 # path itself (%C3%A9, what browsers send); the lowercase encoding is listed separately.
 /projet/renovation-maison-année-30-st-barnabe /projet/renovation-maison-annee-30-st-barnabe 301
 /projet/renovation-maison-ann%c3%a9e-30-st-barnabe /projet/renovation-maison-annee-30-st-barnabe 301
+
+# Old sitemap (next-sitemap), still declared in Search Console.
+/sitemap-0.xml /sitemap.xml 301

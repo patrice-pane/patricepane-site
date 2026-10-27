@@ -332,6 +332,22 @@ le sitemap actuel. L'apex redirige vers `www`, comme aujourd'hui.
    Faire l'inventaire avant de supprimer, pour ne pas toucher d'autres projets sur le même compte AWS.
 8. Archiver `patricepane-docker` sur GitHub (jamais mis en ligne). Le VPS n'est pas concerné.
 
+### Search Console (lu le 27/10/2026) — à garder en tête pour la phase 8
+- Propriété **domaine** `sc-domain:patricepane.com` (vérifiée par le TXT DNS, donc à garder dans la zone).
+- 16 mois : ~300 clics. Pages principales : `/` (95 clics, position moyenne 27),
+  `http://www.patricepane.com/` (61), **`/projet/renovation-maison-année-30-st-barnabe` (52 clics,
+  4 054 impressions, position ~11 : la page la plus vue → sa 301 est critique)**, séjour Endoume (24).
+- Requêtes : longue traîne qui marche (« banquette veranda » pos. 1, « renovation maison annee 30 »
+  pos. 2-10, « maison année 30 intérieur » pos. 1) ; la requête cible « architecte d'intérieur
+  marseille » est en position 29 à 49 → le levier est la fiche Google + contenu des projets.
+  « extension maison aubagne » et voisines en position 11 à 20 : proches de la 1re page.
+- Indexation : 17 pages indexées ; « redirections » = http→https et apex→www (à reproduire :
+  **301 partout**, l'apex fait aujourd'hui une 302) ; deux 404 `/[slug]` et `/projet/[slug]`
+  (restes de Next 12, sans importance).
+- À la bascule : activer « Always Use HTTPS » et la redirection apex→www en 301 ; dans la Search
+  Console, retirer `sitemap-0.xml` (redirigé en 301 de toute façon) et soumettre `sitemap.xml` ;
+  inspecter l'URL de la maison année 30 ; activer Crawler Hints (IndexNow, Bing).
+
 ### Phase 9 — Docs
 - `README.md` (français) sur le modèle d'aMu : où est le contenu, guide éditeur, accès, modèle
   de sécurité, mise à jour de Sveltia, mise en prod.
