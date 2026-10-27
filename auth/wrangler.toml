@@ -1,0 +1,23 @@
+# Cloudflare Worker: GitHub OAuth client for this site's Sveltia CMS.
+# Deployed once by hand (`npx wrangler@4.154.0 deploy` from this folder), not by
+# the Pages build. Copied from aMu (~/dev/aMu-pychotherapie-institutionnelle/auth).
+name = "cms-auth-patricepane"
+# Robin's Cloudflare account (arbona.robin@gmail.com). The same login also reaches
+# other accounts: this pins every deploy to the right one.
+account_id = "f1be9dc429b4d5120a6685f59b34c6f2"
+main = "src/index.ts"
+# Frozen on purpose: Cloudflare keeps old compatibility dates working forever.
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+[vars]
+# Exact origins (scheme + host, no trailing slash) allowed to receive tokens.
+# The apex redirects to www, so the admin always runs on www.
+ALLOWED_ORIGINS = "https://www.patricepane.com,https://patricepane-site.pages.dev,http://localhost:3000"
+# The repository is public.
+OAUTH_SCOPE = "public_repo"
+
+# Secrets (never committed), set once with:
+#   npx wrangler@4.154.0 secret put GITHUB_CLIENT_ID
+#   npx wrangler@4.154.0 secret put GITHUB_CLIENT_SECRET
+#   npx wrangler@4.154.0 secret put STATE_SECRET   (openssl rand -hex 32)

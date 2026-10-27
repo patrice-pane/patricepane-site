@@ -5,8 +5,9 @@ backend:
   name: github
   repo: patrice-pane/patricepane-site
   branch: main
-  # TODO phase 6: base_url of this site's OAuth Worker (auth/), for "Sign in with GitHub".
-  # Until then, token sign-in and "Work with Local Repository" work.
+  # "Sign in with GitHub" goes through this site's OAuth Worker (auth/).
+  # Token sign-in stays available as a fallback.
+  base_url: https://cms-auth-patricepane.arbona-robin.workers.dev
 
 site_url: https://www.patricepane.com
 display_url: https://www.patricepane.com
