@@ -1,12 +1,20 @@
 // One-off migration of the AWS export (../patricepane-docker/scripts/data) into content/ and public/uploads/.
 // The export was checked field by field against the live site's __NEXT_DATA__ on 2026-10-27.
-// Usage: node scripts/migrate.mjs [path/to/data]
+// Usage: node scripts/migrate.mjs [path/to/data] [--force]
+import { existsSync } from "node:fs";
 import { mkdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { basename, extname, join } from "node:path";
 import sharp from "sharp";
 import { stringify } from "yaml";
 
-const DATA = process.argv[2] ?? "../patricepane-docker/scripts/data";
+// content/ is edited in the CMS since the migration: never overwrite it by accident.
+if (existsSync("content") && !process.argv.includes("--force")) {
+  console.error("content/ existe déjà : la migration écraserait les modifications faites depuis (CMS).");
+  console.error("Relancer avec --force seulement pour repartir de l'export AWS.");
+  process.exit(1);
+}
+
+const DATA = process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "../patricepane-docker/scripts/data";
 const UPLOADS = "public/uploads";
 const CONTENT = "content";
 const MAX_SIDE = 2400;
