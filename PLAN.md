@@ -86,11 +86,12 @@ Mêmes champs que les projets, plus `titre_menu` (libellé du menu, aujourd'hui 
 s'affiche). L'`order` sert à l'ordre du menu. « Projets » (lien vers `/`) reste toujours en premier.
 
 ### `content/accueil.yml`
+`titre` et `description` (`<title>` et meta description de l'accueil, venus de l'entrée « home »),
 `texte` (markdown). Aujourd'hui il est rendu dans un `<article class="rich-content">` de `ProjectsView`.
 
 ### `content/reglages/site.yml`
-`nom_site`, `titre` (« architecte d'intérieur à marseille »), `meta_description`, `adresse`,
-`telephone`, `email`, `instagram` (nom d'utilisateur). On sort de `Address.tsx`, `Title.tsx` et
+`nom_site`, `titre` (« architecte d'intérieur à marseille »), `metier` (« Architecte d'intérieur »,
+sous le nom dans le pied des pages), `adresse` (multiligne), `telephone`, `email`, `instagram` (nom d'utilisateur). On sort de `Address.tsx`, `Title.tsx` et
 `metadata.constants.ts` tout ce qui y est codé en dur.
 
 ### Ordre manuel (vérifié)
@@ -197,6 +198,11 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
 - `home` → `content/accueil.yml` ; `mission`, `presentation`, `parcours` → `content/pages/`.
 - **Fini quand** `content/` contient 13 projets et 3 pages, avec toutes les images référencées
   présentes. Vérifier le poids total de `public/uploads/` (repère : environ 75 Mo en webp).
+- ✅ Fait le 27/10/2026. L'export est identique au `__NEXT_DATA__` du site en ligne (titres, textes,
+  descriptions, positions, images, alts). 126 images, 37 Mo : l'image de « home » n'est jamais
+  affichée et n'est pas migrée. Les 4 pages sont `DRAFT` dans l'export mais en ligne (l'ancien site
+  ignorait `state`) : migrées avec `publie: true`, ordre du menu repris du site (mission,
+  présentation, parcours).
 
 ### Phase 2 — Couche contenu
 - `lib/content/schema.ts` (Zod), `lib/content/index.ts` : `getProjects()`, `getProject(slug)`,
