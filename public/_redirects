@@ -1,3 +1,4 @@
-# Old project URL had an accent; the slug is now ASCII. Both forms, to be tested on Pages (phase 7).
+# Old project URL had an accent; the slug is now ASCII. Pages percent-encodes the accented
+# path itself (%C3%A9, what browsers send); the lowercase encoding is listed separately.
 /projet/renovation-maison-année-30-st-barnabe /projet/renovation-maison-annee-30-st-barnabe 301
-/projet/renovation-maison-ann%C3%A9e-30-st-barnabe /projet/renovation-maison-annee-30-st-barnabe 301
+/projet/renovation-maison-ann%c3%a9e-30-st-barnabe /projet/renovation-maison-annee-30-st-barnabe 301
