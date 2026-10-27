@@ -234,6 +234,14 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
 - **Fini quand** `npm run build && npm run preview` reproduit le site actuel. Comparer page par page
   avec la prod, en desktop et en mobile (≤ 900 px) : carrousel d'accueil, carrousel vertical
   et horizontal des projets, lightbox (flèches, ESC), menu mobile.
+- ✅ Fait le 27/10/2026. Valeurs reprises des CSS modules du site en ligne (`../patricepane-old`),
+  pas du port Tailwind de Docker (graisses fausses, classes supprimées en Tailwind 4). Typographie
+  du markdown dans `app/globals.css` (`.rich-home`, `.rich-project`, `.rich-page`). Comparé par
+  captures (Chrome headless) et mesures (positions, tailles) : identique, à ces écarts voulus près :
+  - colonne d'images des projets à 41,65vw (la prod fait 41vw à cause d'un `parseInt`) ;
+  - lightbox en plus (absente de la prod) ; molette et glisser-souris d'Embla refaits sans dépendance ;
+  - menu présent dans le HTML serveur (la prod ne le rend qu'après hydratation) ;
+  - lien Instagram en https ; sur mobile, la page projet défile avec la page (pas dans un conteneur).
 
 ### Phase 4 — CMS
 - `public/admin/index.html` (copie aMu, `noindex`) et `public/admin/sveltia-cms.js` (installation vérifiée,

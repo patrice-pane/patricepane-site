@@ -4,8 +4,9 @@ const nextConfig = {
   trailingSlash: false,
   images: {
     loader: "custom",
-    imageSizes: [64, 128, 256, 384],
-    deviceSizes: [640, 828, 1080, 1440, 1920, 2400],
+    // Few widths on purpose: each one is generated for every image at build time.
+    imageSizes: [256],
+    deviceSizes: [480, 768, 1080, 1440, 1920],
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {
