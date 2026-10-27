@@ -320,7 +320,7 @@ le sitemap actuel. L'apex redirige vers `www`, comme aujourd'hui.
 4. AWS console → Route 53 → *Registered domains* → `patricepane.com` → *Edit name servers* →
    mettre les 2 NS donnés par Cloudflare. Le domaine **reste enregistré chez Amazon**. Un transfert
    vers Cloudflare Registrar est possible plus tard, facultatif.
-5. Attendre que Cloudflare passe la zone en « Active ». Vérifier `dig NS`, le HTTPS sur l'apex
+5. Appliquer la liste « À la bascule » de la section **SEO** ci-dessous. Attendre que Cloudflare passe la zone en « Active ». Vérifier `dig NS`, le HTTPS sur l'apex
    et sur `www`, toutes les URL du sitemap actuel, et la 301 vers la nouvelle URL de `…année-30…`.
 6. Search Console : la propriété reste valide grâce au TXT. Resoumettre `sitemap.xml`.
 7. **Décommissionner AWS après 1 à 2 semaines sans souci** :
@@ -332,7 +332,37 @@ le sitemap actuel. L'apex redirige vers `www`, comme aujourd'hui.
    Faire l'inventaire avant de supprimer, pour ne pas toucher d'autres projets sur le même compte AWS.
 8. Archiver `patricepane-docker` sur GitHub (jamais mis en ligne). Le VPS n'est pas concerné.
 
-### Search Console (lu le 27/10/2026) — à garder en tête pour la phase 8
+### Phase 9 — Docs
+- `README.md` (français) sur le modèle d'aMu : où est le contenu, guide éditeur, accès, modèle
+  de sécurité, mise à jour de Sveltia, mise en prod.
+- Le guide éditeur reprend la routine SEO de Patrice (section SEO, « Actions pour Patrice » 4 à 7).
+
+---
+
+## SEO
+
+Objectif : garder le trafic existant à la bascule, puis gagner la requête locale « architecte
+d'intérieur Marseille ». Recherches et choix du 27/10/2026.
+
+### Fait sur le site
+- URLs conservées ; 301 pour l'URL accentuée (`%C3%A9`, `%c3%a9`) et pour `/sitemap-0.xml`.
+- Titre, description, canonical et Open Graph par page ; `robots.txt` ; 404 en `noindex`.
+- Données structurées (JSON-LD), générées au build depuis le contenu :
+  - accueil : `HomeAndConstructionBusiness` (nom + `alternateName` « Patrice Pane Architecture
+    Intérieure » = nom de la fiche Google, adresse découpée, téléphone international, email, zone
+    Marseille, photo, `sameAs` Instagram + fiche Google, champ « Fiche Google » des réglages) ;
+  - pages et projets : fil d'Ariane (`BreadcrumbList`) + `WebPage` / `CreativeWork` (photos, auteur).
+- Sitemap avec les photos (139) et la vraie date de dernière modification (`git log` du fichier ;
+  le build récupère l'historique sans les fichiers, sinon pas de date plutôt qu'une fausse).
+- Liens « projet précédent / suivant » en bas de chaque projet (maillage interne).
+- Performances (Lighthouse mobile) : accueil 87, projet 97, mission 96 ; `sizes` exacts d'après le
+  ratio des images, image principale en priorité haute, Bodoni préchargée sur l'accueil seulement.
+- CMS : compteur et limite de 160 caractères sur les descriptions, aide « < 60 caractères, travaux
+  + lieu d'abord » sur les titres (pas de limite stricte : tous les titres actuels la dépassent).
+- Pas de logo déclaré : le favicon (110 px) est sous le minimum Google de 112 px. Fournir un logo
+  carré ≥ 112 px pour l'ajouter.
+
+### Search Console (lu le 27/10/2026)
 - Propriété **domaine** `sc-domain:patricepane.com` (vérifiée par le TXT DNS, donc à garder dans la zone).
 - 16 mois : ~300 clics. Pages principales : `/` (95 clics, position moyenne 27),
   `http://www.patricepane.com/` (61), **`/projet/renovation-maison-année-30-st-barnabe` (52 clics,
@@ -344,13 +374,46 @@ le sitemap actuel. L'apex redirige vers `www`, comme aujourd'hui.
 - Indexation : 17 pages indexées ; « redirections » = http→https et apex→www (à reproduire :
   **301 partout**, l'apex fait aujourd'hui une 302) ; deux 404 `/[slug]` et `/projet/[slug]`
   (restes de Next 12, sans importance).
-- À la bascule : activer « Always Use HTTPS » et la redirection apex→www en 301 ; dans la Search
-  Console, retirer `sitemap-0.xml` (redirigé en 301 de toute façon) et soumettre `sitemap.xml` ;
-  inspecter l'URL de la maison année 30 ; activer Crawler Hints (IndexNow, Bing).
 
-### Phase 9 — Docs
-- `README.md` (français) sur le modèle d'aMu : où est le contenu, guide éditeur, accès, modèle
-  de sécurité, mise à jour de Sveltia, mise en prod.
+### À la bascule (phase 8)
+- Cloudflare : « Always Use HTTPS » ; apex → `https://www.patricepane.com` en **301** (chemin
+  conservé) ; Crawler Hints activé (IndexNow : Bing, Yandex ; Google n'y participe pas).
+- Garder le TXT `google-site-verification` dans la zone (propriété domaine de la Search Console).
+- Search Console : retirer `sitemap-0.xml`, soumettre `sitemap.xml`, inspecter `/`, la maison
+  année 30 (ancienne et nouvelle URL) et deux projets ; suivre Pages et Performances 2 à 4 semaines.
+- Test des résultats enrichis sur l'accueil et un projet.
+
+### Actions pour Patrice (synthèse, par priorité)
+Fiche Google (« Patrice Pane Architecture Intérieure ») :
+1. Vérifier qu'il en est propriétaire (sinon la revendiquer depuis Google Maps).
+2. Mettre à jour : 8 place des Moulins, 13002 Marseille ; 06 29 53 56 07 ;
+   https://www.patricepane.com ; catégorie principale « Architecte d'intérieur ».
+3. À chaque chantier terminé, demander un avis Google au client ; répondre à tous les avis.
+4. À chaque projet publié sur le site, ajouter 2 ou 3 photos à la fiche (appli Google Maps).
+
+Site (dans l'administration) :
+5. Raccourcir les titres des projets (< 60 caractères, travaux + lieu d'abord), en commençant par
+   Aubagne (« extension maison aubagne » en position 11 à 20) et la maison année 30 (la page la
+   plus vue, peu cliquée : 0,3 à 0,9 %). Robin peut proposer des titres à valider.
+6. Décrire la première photo de chaque projet en une phrase naturelle (texte alternatif ;
+   aujourd'hui ce sont les noms de fichiers).
+7. Pour chaque nouveau projet : un vrai texte (quartier, type de travaux, matériaux, année),
+   c'est ce qui amène le trafic actuel.
+8. Fournir les informations des mentions légales (obligatoires, loi LCEN) : nom ou raison
+   sociale, statut, SIRET, adresse, contact, directeur de publication. Robin crée la page, en lien
+   discret en bas de page (une page du CMS s'ajouterait au menu) ; hébergeur : Cloudflare.
+
+Ailleurs :
+9. Mêmes coordonnées exactes sur Houzz, PagesJaunes, Malt, l'annuaire de son école ou de son
+   association professionnelle, Instagram (lien vers le site en bio).
+10. Demander un lien vers le site aux architectes et artisans partenaires.
+
+### Pistes écartées
+- Publication automatique sur la fiche Google (API Business Profile) : accès sur dossier (examen
+  manuel, quota à 0 avant accord), jeton du compte Google de Patrice à stocker, service à maintenir.
+  Contraire à « zéro maintenance » ; le geste manuel (action 4) prend une minute.
+- Limite stricte sur la longueur des titres dans le CMS : bloquerait l'enregistrement des projets
+  existants.
 
 ---
 
