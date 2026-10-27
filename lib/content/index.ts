@@ -15,7 +15,9 @@ const PUBLIC = join(process.cwd(), "public");
 const RESERVED_SLUGS = new Set(["projet", "admin", "uploads", "_next", "404", "index", "sitemap.xml", "robots.txt"]);
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-export type Image = { src: string; alt: string; width: number; height: number };
+import type { Image } from "./image.ts";
+
+export type { Image } from "./image.ts";
 
 export type Entry = {
   slug: string;

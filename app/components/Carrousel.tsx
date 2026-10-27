@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
-import type { Image } from "@/lib/content/index.ts";
+import { ratio, type Image } from "@/lib/content/image.ts";
 import { useDragScroll } from "./useDragScroll";
 
 export type CarrouselItem = { href: string; titre: string; image?: Image };
@@ -28,10 +28,13 @@ export default function Carrousel({ items }: { items: CarrouselItem[] }) {
               width={image.width}
               height={image.height}
               alt={titre}
-              sizes="(max-width: 900px) 70vw, 30vw"
+              // Height is 33vh: the displayed width follows from the ratio.
+              sizes={`calc(33vh * ${ratio(image)})`}
               className="h-full w-auto"
               draggable={false}
-              priority={index < 3}
+              preload={index === 0}
+              fetchPriority={index === 0 ? "high" : undefined}
+              loading={index < 4 ? "eager" : "lazy"}
             />
           ) : (
             // A project without images stays reachable.

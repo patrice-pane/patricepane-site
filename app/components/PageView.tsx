@@ -1,5 +1,6 @@
 import ExportedImage from "next-image-export-optimizer";
 import { getSite, type Page } from "@/lib/content/index.ts";
+import { ratio } from "@/lib/content/image.ts";
 import { renderMarkdown } from "@/lib/markdown.ts";
 import Address from "./Address";
 import NavBar from "./NavBar";
@@ -33,9 +34,11 @@ export default async function PageView({ page }: { page: Page }) {
             width={image.width}
             height={image.height}
             alt={image.alt || page.titre}
-            sizes="(max-width: 900px) 84vw, 17vw"
+            // Contained in a 5-row box (41.65vh minus its 40px top margin), 10 columns wide on mobile, 2 on desktop.
+            sizes={`(max-width: 900px) min(83.3vw, calc((41.65vh - 40px) * ${ratio(image)})), min(16.66vw, calc((41.65vh - 40px) * ${ratio(image)}))`}
             className="w-full h-full object-contain object-top"
-            priority
+            preload
+            fetchPriority="high"
           />
         </div>
       )}

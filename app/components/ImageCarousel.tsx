@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import ExportedImage from "next-image-export-optimizer";
-import type { Image } from "@/lib/content/index.ts";
+import { ratio, type Image } from "@/lib/content/image.ts";
 import Lightbox from "./Lightbox";
 import { useDragScroll } from "./useDragScroll";
 
@@ -33,10 +33,12 @@ export default function ImageCarousel({ images, titre }: { images: Image[]; titr
               width={image.width}
               height={image.height}
               alt={image.alt || titre}
-              sizes="(max-width: 900px) 80vw, 42vw"
+              // Mobile: 41.65vh high strip; desktop: 41.65vw wide column.
+              sizes={`(max-width: 900px) calc(41.65vh * ${ratio(image)}), 42vw`}
               className="h-full w-auto md:w-full md:h-auto"
               draggable={false}
-              priority={index === 0}
+              preload={index === 0}
+              fetchPriority={index === 0 ? "high" : undefined}
             />
           </button>
         ))}

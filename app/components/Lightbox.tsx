@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import ExportedImage from "next-image-export-optimizer";
-import type { Image } from "@/lib/content/index.ts";
+import { ratio, type Image } from "@/lib/content/image.ts";
 
 const button =
   "absolute z-10 w-12 h-12 flex items-center justify-center rounded-full text-white transition-colors hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer";
@@ -97,7 +97,7 @@ export default function Lightbox({
           width={image.width}
           height={image.height}
           alt={image.alt}
-          sizes="95vw"
+          sizes={`min(95vw, calc(95vh * ${ratio(image)}))`}
           placeholder="empty"
           className="max-w-full max-h-[95vh] w-auto h-auto object-contain"
           onLoad={() => setLoading(false)}
