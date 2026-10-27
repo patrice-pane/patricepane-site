@@ -280,6 +280,12 @@ Chaque phase se termine par un commit. Ne passer à la suivante que si le critè
 - Créer une OAuth App GitHub (callback `https://cms-auth-patricepane.<compte>.workers.dev/callback`),
   puis `wrangler secret put` GITHUB_CLIENT_ID / GITHUB_CLIENT_SECRET / STATE_SECRET.
 - Reporter `base_url` dans `config.yml`. Exclure `auth/` du `tsconfig`.
+- ✅ Fait le 27/10/2026, sur le compte Cloudflare **de Robin** (`f1be9dc4…`, épinglé dans
+  `wrangler.toml` : la même session atteint aussi le compte d'aMu). Worker :
+  `https://cms-auth-patricepane.arbona-robin.workers.dev`. OAuth App « Administration
+  patricepane.com » dans l'organisation `patrice-pane`, jetons **sans expiration** (le Worker ne
+  gère pas les refresh tokens). Vérifié : redirection vers GitHub (client_id, callback,
+  `public_repo`), `state` falsifié refusé. Reste le test de connexion réel, en phase 7 sur `*.pages.dev`.
 
 ### Phase 7 — Cloudflare Pages
 - Pages → Connect to Git → repo, branche `main`. Build : `npm run build`. Output : `out`. `NODE_VERSION=22`.
