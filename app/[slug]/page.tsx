@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import PageView from "@/app/components/PageView";
 import { getPage, getPages, getSite } from "@/lib/content/index.ts";
 import { entryMetadata } from "@/lib/metadata.ts";
+import { entryJsonLd, jsonLdScript } from "@/lib/structured-data.ts";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -20,5 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const page = getPage((await params).slug);
   if (!page) notFound();
-  return <PageView page={page} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(entryJsonLd(page, `/${page.slug}`, "page")) }}
+      />
+      <PageView page={page} />
+    </>
+  );
 }

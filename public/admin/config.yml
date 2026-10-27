@@ -60,11 +60,12 @@ collections:
       - label: Titre
         name: titre
         widget: string
-        hint: "Titre de l'onglet et des moteurs de recherche. Il sert aussi d'adresse de la page à la création (non modifiable ensuite)."
+        hint: "Titre de l'onglet et de Google, idéalement moins de 60 caractères (au-delà, Google le coupe) : type de travaux et lieu d'abord, ex. « Rénovation d'une cuisine à Endoume, Marseille ». Il sert aussi d'adresse de la page à la création (non modifiable ensuite)."
       - label: Description
         name: description
         widget: text
         required: false
+        maxlength: 160
         hint: "Une ou deux phrases pour Google et les aperçus de partage (WhatsApp, Facebook…)."
       - label: Images
         name: images
@@ -110,6 +111,7 @@ collections:
         name: description
         widget: text
         required: false
+        maxlength: 160
         hint: "Sous-titre affiché sous le titre, repris par Google et les aperçus de partage."
       - label: Images
         name: images
@@ -132,7 +134,7 @@ collections:
         file: content/accueil.yml
         fields:
           - { label: Titre (onglet et Google), name: titre, widget: string }
-          - { label: Description (Google et aperçus de partage), name: description, widget: text, required: false }
+          - { label: Description (Google et aperçus de partage), name: description, widget: text, required: false, maxlength: 160 }
           - label: Texte sous les projets
             name: texte
             widget: markdown

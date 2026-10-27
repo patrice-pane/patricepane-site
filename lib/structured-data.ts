@@ -1,5 +1,6 @@
 import type { Accueil, Site } from "./content/schema.ts";
 import type { Image } from "./content/image.ts";
+import type { Entry, Page } from "./content/index.ts";
 import { SITE_URL } from "./metadata.ts";
 
 // Address as typed in the CMS: "street\npostcode, city". Parsed so Google gets a PostalAddress;
@@ -41,3 +42,31 @@ export function businessJsonLd(site: Site, accueil: Accueil, cover?: Image) {
 
 // Serialized for a <script type="application/ld+json">: "<" escaped so CMS text cannot close the tag.
 export const jsonLdScript = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
+
+// JSON-LD for a page or project: breadcrumb (Accueil › page) and the page itself.
+// A project is a CreativeWork by the business declared on the home page; its photos go in `image`.
+export function entryJsonLd(entry: Entry, path: string, kind: "projet" | "page") {
+  const url = `${SITE_URL}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: kind === "page" ? (entry as Page).titre_menu : entry.titre, item: url },
+        ],
+      },
+      {
+        "@type": kind === "projet" ? "CreativeWork" : "WebPage",
+        "@id": `${url}#contenu`,
+        name: entry.titre,
+        description: entry.description || undefined,
+        url,
+        inLanguage: "fr-FR",
+        ...(entry.images.length > 0 && { image: entry.images.map((i) => `${SITE_URL}${i.src}`) }),
+        ...(kind === "projet" && { creator: { "@id": `${SITE_URL}/#entreprise` } }),
+      },
+    ],
+  };
+}
